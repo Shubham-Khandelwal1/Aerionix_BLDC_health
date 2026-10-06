@@ -1,0 +1,7 @@
+# KiCad lock files
+*.lck
+~*
+
+# Python cache
+__pycache__/
+*.py[cod]
