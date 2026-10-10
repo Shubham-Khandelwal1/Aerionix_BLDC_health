@@ -662,7 +662,7 @@
         "uuid": "f83a295d-6803-47c0-b740-a5ec3b1f3a16"
       }
     ],
-    "used_designators": "",
+    "used_designators": "J1-3,R1-14,D1-2,#PWR1-29,C1-20,FB1,F1,JP1-2,SW1-2,Thermistor1,U1-4,Y1",
     "variants": []
   },
   "sheets": [
