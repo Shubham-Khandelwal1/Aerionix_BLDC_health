@@ -8635,7 +8635,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 			(at 124.46 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -10214,7 +10214,7 @@
 				)
 			)
 		)
-		(property "Footprint" "RESET:SW_TS09-63-25_CUD"
+		(property "Footprint" "TS09-63-25-WT-160-SMT-TR:SW_TS09-63-25-WT-160-SMT-TR"
 			(at 124.46 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -10546,7 +10546,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical"
 			(at 124.841 179.959 90)
 			(hide yes)
 			(show_name no)
@@ -10789,7 +10789,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm"
 			(at 23.495 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -12046,7 +12046,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm"
 			(at 182.245 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -13592,7 +13592,7 @@
 				)
 			)
 		)
-		(property "Footprint" "usb c vikram bhaiya:USB-C-16P"
+		(property "Footprint" "Connector_USB:USB_C_Receptacle_Amphenol_12401548E4-2A"
 			(at 237.49 44.45 0)
 			(hide yes)
 			(show_name no)
