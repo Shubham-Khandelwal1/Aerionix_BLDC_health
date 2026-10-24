@@ -671,7 +671,7 @@
 							)
 						)
 					)
-					(number "GND"
+					(number "A1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -689,7 +689,7 @@
 							)
 						)
 					)
-					(number "S1"
+					(number "SH"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -707,7 +707,7 @@
 							)
 						)
 					)
-					(number "VBUS"
+					(number "A4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -11381,7 +11381,7 @@
 				)
 			)
 		)
-		(property "Value" "Crystal"
+		(property "Value" "8MHz CL20pF"
 			(at 82.55 163.83 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13592,7 +13592,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_USB:USB_C_Receptacle_Amphenol_12401548E4-2A"
+		(property "Footprint" "Connector_USB:USB_C_Receptacle_Amphenol_124019772112A"
 			(at 237.49 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -13628,7 +13628,7 @@
 		(pin "B12"
 			(uuid "77b41900-4765-4b63-a361-669576336a53")
 		)
-		(pin "GND"
+		(pin "A1"
 			(uuid "b1f7987c-2d2e-477b-a826-6fa476a69a46")
 		)
 		(pin "B6"
@@ -13655,13 +13655,13 @@
 		(pin "B9"
 			(uuid "ea41ccc6-37dc-4f47-8285-6f14177bbda2")
 		)
-		(pin "S1"
+		(pin "SH"
 			(uuid "59f5fbd7-da48-43a9-9982-2d99346ada9b")
 		)
 		(pin "A12"
 			(uuid "c9ca00c8-cd5e-444c-998a-b6ad4821b016")
 		)
-		(pin "VBUS"
+		(pin "A4"
 			(uuid "b2c82b21-db9d-4a97-9987-2f1118ffdcc0")
 		)
 		(pin "A9"
@@ -14735,4 +14735,91 @@
 		)
 	)
 	(embedded_fonts no)
+
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 203.2000 172.7200 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "25070ed6-2ad9-4fa5-8b2b-6b89339acaf0")
+		(property "Reference" "C21"
+			(at 198.1200 172.0850 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 196.8500 174.6250 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 203.2000 172.7200 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 203.2000 172.7200 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 203.2000 172.7200 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "1c8cb205-cfe0-46f2-8eae-f6c7d9dc5b6c")
+		)
+		(pin "1"
+			(uuid "a43341ea-5216-4543-9986-aa1fd489ee30")
+		)
+		(instances
+			(project "bldc_health"
+				(path "/f83a295d-6803-47c0-b740-a5ec3b1f3a16"
+					(reference "C21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire (pts (xy 203.2 170.1800) (xy 203.2 167.6400)) (stroke (width 0) (type default)) (uuid "0c295965-eb07-4173-8733-4d6a602b5b94"))
+	(label "VDD" (at 203.2 167.6400 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "f913de9f-4b5a-4ec8-b3bf-0be2feaf870d"))
+	(wire (pts (xy 203.2 175.2600) (xy 203.2 177.8000)) (stroke (width 0) (type default)) (uuid "d03244d7-3fd6-4dc4-962f-dad28adb5d3b"))
+	(label "GND" (at 203.2 177.8000 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "1010021f-51ca-4de5-bea6-686541f25782"))
+	(text "U2 local bypass; I2C target 100 kHz" (at 203.2 162.56 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "d659ce16-512b-4493-807b-49d2abf6aa8b"))
 )
