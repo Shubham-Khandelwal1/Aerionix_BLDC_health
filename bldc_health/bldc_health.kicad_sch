@@ -475,82 +475,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 15.24 15.24 180)
-					(length 5.08)
-					(hide yes)
-					(name "VBUS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -22.86 90)
-					(length 5.08)
-					(hide yes)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -22.86 90)
-					(length 5.08)
-					(hide yes)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 15.24 15.24 180)
-					(length 5.08)
-					(hide yes)
-					(name "VBUS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
+
+
+
+
 				(pin bidirectional line
 					(at 15.24 7.62 180)
 					(length 5.08)
@@ -623,44 +551,8 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 15.24 15.24 180)
-					(length 5.08)
-					(hide yes)
-					(name "VBUS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -22.86 90)
-					(length 5.08)
-					(hide yes)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
+
+
 				(pin passive line
 					(at 0 -22.86 90)
 					(length 5.08)
@@ -671,7 +563,7 @@
 							)
 						)
 					)
-					(number "A1"
+					(number "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -707,7 +599,7 @@
 							)
 						)
 					)
-					(number "A4"
+					(number "VBUS"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -13592,7 +13484,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_USB:USB_C_Receptacle_Amphenol_124019772112A"
+		(property "Footprint" "Aerionix_Local:USB-C-16P_ARM-PCB"
 			(at 237.49 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -13625,21 +13517,15 @@
 				)
 			)
 		)
-		(pin "B12"
-			(uuid "77b41900-4765-4b63-a361-669576336a53")
-		)
-		(pin "A1"
+
+		(pin "GND"
 			(uuid "b1f7987c-2d2e-477b-a826-6fa476a69a46")
 		)
 		(pin "B6"
 			(uuid "b5e2f3ba-49b6-4773-bfb6-fe532e97a4e0")
 		)
-		(pin "B4"
-			(uuid "c5fb9295-0cdf-4555-a27b-54bf85ebcfba")
-		)
-		(pin "B1"
-			(uuid "71fdda8f-784f-4d31-8322-0d6bbc02e040")
-		)
+
+
 		(pin "B5"
 			(uuid "f11002d7-a8bf-42d6-a214-01cedc873bbb")
 		)
@@ -13652,21 +13538,15 @@
 		(pin "A7"
 			(uuid "24fd50e6-dab3-4574-904d-b8f271fba0c3")
 		)
-		(pin "B9"
-			(uuid "ea41ccc6-37dc-4f47-8285-6f14177bbda2")
-		)
+
 		(pin "SH"
 			(uuid "59f5fbd7-da48-43a9-9982-2d99346ada9b")
 		)
-		(pin "A12"
-			(uuid "c9ca00c8-cd5e-444c-998a-b6ad4821b016")
-		)
-		(pin "A4"
+
+		(pin "VBUS"
 			(uuid "b2c82b21-db9d-4a97-9987-2f1118ffdcc0")
 		)
-		(pin "A9"
-			(uuid "a958e0a1-370f-467f-9180-34ec1bb0438a")
-		)
+
 		(pin "B7"
 			(uuid "b9d2e87d-d9af-43ad-9c2b-a41d05e686c8")
 		)

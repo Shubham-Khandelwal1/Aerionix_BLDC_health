@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name "EasyEDA_Lib")(type "EasyEDA / JLCEDA Pro")(uri "${KIPRJMOD}/EasyEDA_Lib/EasyEDA_Lib.elibz")(options "")(descr ""))
+  (lib (name "Aerionix_Local")(type "KiCad")(uri "${KIPRJMOD}/Aerionix_Local.pretty")(options "")(descr "USB footprint copied from user ARM-PCB reference"))
 )

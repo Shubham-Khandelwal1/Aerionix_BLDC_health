@@ -1,0 +1,6 @@
+Source: D:/RM_16/ARM-PCB/ENCODER_USB.kicad_pcb, footprint J1 (USB-C-16P).
+Copied at user request on 2026-10-24. All 18 copper/drill geometries verified unchanged.
+Shield pad aliases NC and S normalized to SH and connected to the existing schematic shield net GND.
+Grouped GND/VBUS symbol pin aliases adapted to this footprint. Local direct GND zone connections added.
+Target placement preserves the reference connector origin-to-facing-edge distance.
+Source board was read only. The source library 3D model is retained; mechanical assembly review remains required.
