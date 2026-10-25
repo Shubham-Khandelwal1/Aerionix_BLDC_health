@@ -1,0 +1,29 @@
+ANGULAR ROUTING CLEANUP - 26 October 2026
+
+Replaced dense chains of short track segments that looked curved with long
+straight sections and 45-degree bends. This includes SCL_ICM around the J2
+header pad shown in the user screenshot, plus Reset, SDA_ASM, supply and clock
+sections with the same stepping. Fifteen local chains were simplified.
+Track segment count: 886 -> 614. There are no actual PCB_ARC track primitives.
+
+The original routing contained many short H/V/diagonal steps, rather than true
+arcs. The cleanup reduces these steps without changing net assignments.
+The header clearance was checked with native DRC, including the through-hole
+pad shape. A small 0.05 mm corner offset was used there for proper clearance.
+A compact Reset escape retains the short straight/45-degree offset needed to
+clear its neighbouring PA0 via; no rounded track geometry was used.
+
+All footprints, vias, silkscreen logo and three drones, board outline, project
+rules and zone settings were verified unchanged. Ground zones were refilled
+for validation. No ground tracks were added. Existing 0.30 mm tracks were
+retained; all modified tracks are 0.20 mm, meeting the minimum-width request.
+No new vias were required. USB differential routing was not altered.
+
+Native DRC of the actual saved PCB: zero violations and zero open connections.
+The four existing board-only mounting-hole schematic-parity notices remain.
+The endpoint geometry screen reports no acute or 90-degree degree-two signal
+bends outside pads/vias. Existing schematic ERC and the separate electrical,
+impedance and manufacturing recommendations from the prior report still apply.
+
+The accepted cleanup batches were saved and refreshed in the live PCB Editor.
+No temporary failed routing trial was published.
