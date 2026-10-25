@@ -1,0 +1,5 @@
+ICM-40609-D_LGA24_DirectGround
+Source: EasyEDA_Lib/EasyEDA_Lib.elibz, footprint LGA-24_L3.0-W3.0-P0.40-TL.
+Created 26 October 2026. Only pad 11 and pad 18 zone connection changed to solid to match the existing PCB layout.
+Copper, paste and solder-mask geometry, pad numbering, body drawings and 3D model retained from source.
+This local variant makes the intentional ground connection overrides explicit and reproducible. No DRC exclusion was added. It is not independent manufacturer land-pattern certification.

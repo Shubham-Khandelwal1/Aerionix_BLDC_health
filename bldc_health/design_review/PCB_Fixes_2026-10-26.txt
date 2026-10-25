@@ -1,0 +1,100 @@
+PCB FIXES AND REMAINING RECOMMENDATIONS
+26 October 2026 - saved KiCad board, existing two-layer stackup
+
+Project: G:\projects\Aerionix_BLDC_health-main\Aerionix_BLDC_health-main\bldc_health
+PCB: bldc_health.kicad_pcb
+Before-repair Git backup pushed: 957def7
+Saved PCB SHA256: ceadd28d3651e4413a047be75bd98f0bb1f4a230c713cd059209d6a6edaf76bc
+
+1. FINAL VERIFIED RESULT
+Native KiCad 10.0.1 PCB DRC, with zones refilled in memory and schematic parity enabled:
+- 0 ordinary DRC errors.
+- 0 ordinary DRC warnings.
+- 0 unconnected items, including ground.
+- 4 schematic-parity warnings, all existing board-only mounting holes: MH2, MH5, MH6, MH7.
+- 54 footprints, 886 straight track segments and 88 through vias.
+- No GND tracks. Ground connectivity uses the existing zones and 15 ground stitching vias.
+- All new or modified tracks verified at 0.20 mm.
+- All new or moved vias verified at 0.60 mm copper / 0.30 mm drill.
+- No acute or 90-degree degree-two signal bends found outside pads and vias by the endpoint geometry screen. This screen excludes pad/via entries and branching junctions.
+- The existing project settings, stackup and custom clearance-rule file were retained byte-for-byte. The custom copper clearance remains 0.15 mm; it was not relaxed to make routing pass.
+
+This result is a PCB connectivity/layout check, not full electrical, manufacturing or impedance certification. The separate schematic ERC still has 23 errors and 144 warnings (167 total), as described below.
+
+2. CHANGES APPLIED IN THIS REPAIR PASS
+A. VDD reconnection
+Connected C3's isolated supply pad to the existing VDD network using a short 0.20 mm connection, with no additional supply via for that repair. This removes the VDD open reported by the recheck.
+
+B. Original routing-shape violations
+Chamfered the VDD corner near (116.15, 110.72) and the VDDA corner near (124.8603, 120.41). Removed the folded VBUS stub near (110.23, 104.30) while preserving its continuous junction. Changed the short Net-(JP1-C) segment from 0.30 to 0.20 mm. Other retained legacy track widths were not changed globally.
+
+C. SCL_ICM
+Connected U1 pin 38 to the existing R10/U4 network using 0.20 mm routing and three new 0.60/0.30 mm vias. The dense existing routing requires a detour; this is not a claim of a globally shortest route.
+
+D. SDA_ASM
+Connected the existing U1 branch to the U2/R3 branch with 0.20 mm routing and three new 0.60/0.30 mm vias. A finer routing search avoided the larger trial that displaced PA2_TX and VDDA; that trial was discarded. The accepted routes preserve those networks except for the separately required VDDA corner chamfer.
+
+E. Reset escape
+Connected U1 pin 7 to the existing reset network. Shifted C6 by only +0.25 mm in Y, from (114.675, 120.510) to (114.675, 120.760), on its existing layer and at its existing orientation. Reattached its supply pad using 0.20 mm routing. Adjusted the local HSE_IN and HSE_OUT fanout to make space for Reset. Their existing remote routes and crystal placement were retained; the short new clock connections were checked for clearance and connectivity. Reset uses five new 0.60/0.30 mm vias including the pin escape. This detour closes the open; route-length optimization would require further work and is not represented as complete.
+
+F. Ground connectivity
+Added three new 0.60/0.30 mm ground stitching vias, approximately at:
+  (105.7740, 120.0417)
+  (107.8122, 108.3234)
+  (119.4600, 125.4400)
+The existing zone boundaries and zone settings were retained. The last via required a small 45-degree offset in a section of FSYNC to provide legal clearance; it did not require moving C10 or changing its capacitance. No ground trace was added.
+
+G. Copper cleanup and silkscreen
+Removed an unused HSE_IN via, an unused one-layer SDA_ASM via and the two-segment SDA_ICM dead-end. Reconnected the same-layer landing copper where removal of a wide via pad had exposed a small gap. Removed an unused trial HSE_OUT via before the final save. Moved R9's reference text clear of J1's reference text. Native DRC reports no remaining dangling-copper or silkscreen warnings.
+
+H. U4 library warning
+Loaded the original EasyEDA footprint and compared it with the placed U4. Its pad geometry matched; the existing layout used solid zone connections for ground pads 11 and 18. Created the explicit local variant:
+  Aerionix_Local:ICM-40609-D_LGA24_DirectGround
+The variant differs from its source only in those two pad zone-connection settings. Pad numbering, copper, paste and mask shapes, body drawings and the source 3D model were retained. Assigned the local variant to U4 in the PCB and schematic. Kept the cached schematic symbol's library default unchanged. No DRC warning was excluded or suppressed. The source and rationale are recorded in Aerionix_Local.pretty/ICM-40609-D_SOURCE.txt.
+
+3. SCOPE PRESERVED
+- USB connector footprint and all 53 USB D+/D- track/via items were checked against the start-of-pass board and remained unchanged.
+- Only C6 moved. All 54 existing footprints remain present.
+- No component values, pin net assignments or functional schematic wiring changed in this pass.
+- The schematic edit only assigns U4's intentional footprint variant.
+- All edits were staged and checked before publication, and each accepted batch was saved and refreshed in the active PCB Editor.
+- The failed placement/routing trials remain isolated in the working scratch folder and were not applied to the saved project.
+
+4. REMAINING ENGINEERING RECOMMENDATIONS
+These are material limitations from the earlier review, not open PCB connections after this pass.
+
+A. Schematic ERC
+Current ERC is 167 findings: 23 errors and 144 warnings. Existing issues include unused MCU pins without explicit no-connect markers, regulator power-driving declarations, off-grid connections and pin-type/library consistency warnings. Resolve each against the actual circuit and firmware intentions. Do not blanket-suppress ERC or add no-connect markers to pins that firmware may need.
+
+B. Four mechanical parity notices
+The PCB contains MH2, MH5, MH6 and MH7 without corresponding schematic symbols. These are mechanical mounting-hole entries, not missing signal connections. Add matching mechanical schematic symbols in a separate documentation cleanup if strict schematic/PCB reference parity is required. Do not delete the mounting holes to clear these notices.
+
+C. USB differential verification
+The USB copper was deliberately retained in this pass. Earlier review did not establish a controlled 90-ohm differential impedance or matched path lengths. Fixed 0.20 mm traces on the retained two-layer stackup cannot be certified to an impedance target without the fabricator's dielectric/copper data and a field calculation. Confirm connector mechanics, pair return-path coverage, ESD provisions and firmware pull-up behavior before fabrication.
+
+D. Crystal and regulator checks
+Y1 remains the specified 8 MHz, CL20 pF crystal and its existing load-capacitor values remain unchanged. The local fanout change does not establish correct effective load capacitance, startup margin or oscillator EMI performance. Verify these against the actual purchased crystal and STM32 oscillator requirements. Regulator input/output capacitor placement improvements from the previous work remain; verify the purchased AMS1117 variant's required capacitance and ESR independently.
+
+E. I2C and physical manufacturing
+The earlier recommended starting I2C speed remains 100 kHz; no firmware settings were changed. Verify rise time and actual bus capacitance with the retained pull-ups. Confirm the selected manufacturer's drill, annular-ring, solder-mask and assembly capabilities, including retained legacy small vias and dense IMU pads. PCB DRC passing the project rules does not replace this manufacturer check.
+
+5. INTERNET GUIDANCE CONSULTED
+Primary sources were used for routing/return-path and KiCad validation guidance. No unsupported USB skew limit or impedance guarantee was inferred.
+- Texas Instruments, High-Speed Interface Layout Guidelines, SPRAAR7J:
+  https://www.ti.com/lit/an/spraar7j/spraar7j.pdf
+  Guidance on routing geometry, reference paths, via discontinuities and differential symmetry.
+- KiCad 10 PCB Editor manual:
+  https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html
+  Routing dimensions, constraints, zone filling, footprint libraries and DRC behavior.
+Additional primary references from the earlier detailed review remain relevant:
+- STM32G491 datasheet: https://www.st.com/resource/en/datasheet/stm32g491cc.pdf
+- ST USB hardware guidance: https://www.st.com/resource/en/application_note/an4879-introduction-to-usb-hardware-and-pcb-guidelines-using-stm32-mcus-stmicroelectronics.pdf
+- ST oscillator design guide: https://www.st.com/resource/en/application_note/an2867-oscillator-design-guide-for-stm8afals-stm32-mcus-and-mpus-stmicroelectronics.pdf
+- I2C pull-up calculation: https://www.ti.com/lit/pdf/slva689
+
+6. EVIDENCE FILES
+- drc.json: fresh native check of the actual saved PCB.
+- verification.json: dimensions, signal-bend screen and routing counts.
+- change-evidence.json: unchanged USB routing, C6 displacement, new via coordinates and unchanged rule/project files.
+- erc.json: fresh schematic ERC; electrical findings are not represented as resolved by this PCB repair.
+The previous PCB_Detailed_Review_Recommendations.txt is the original review. This document supersedes its PCB connectivity/status statements for the completed 26 October repair pass; unresolved hardware recommendations remain relevant.

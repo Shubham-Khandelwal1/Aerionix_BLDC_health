@@ -9828,7 +9828,7 @@
 				)
 			)
 		)
-		(property "Footprint" "EasyEDA_Lib:LGA-24_L3.0-W3.0-P0.40-TL"
+		(property "Footprint" "Aerionix_Local:ICM-40609-D_LGA24_DirectGround"
 			(at 224.79 113.03 0)
 			(hide yes)
 			(show_name no)
